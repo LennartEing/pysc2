@@ -12,7 +12,7 @@ import tensorflow as tf
 
 class Runner:
 
-    def __init__(self, agent, env, train, load_path):
+    def __init__(self, agent, env, train, load_path, save_path):
 
         self.agent = agent
         self.env = env
@@ -21,16 +21,16 @@ class Runner:
         self.score = 0  # store for the scores of an episode
         self.episode = 1  # episode counter
 
-        self.path = './graphs/' + datetime.datetime.now().strftime("%y%m%d_%H%M") \
-                    + ('_train_' if self.train else 'run_') \
-                    + type(agent).__name__
+        self.save_path = save_path + datetime.datetime.now().strftime("%y%m%d_%H%M") \
+                         + ('_train_' if self.train else 'run_') \
+                         + type(agent).__name__
 
         if not self.train and load_path is not None and os.path.isdir(load_path):
             self.agent.load_model(load_path)
 
     def summarize(self):
         if self.train and self.episode % 10 == 0:
-            self.agent.save_model(self.path)
+            self.agent.save_model(self.save_path)
             try:
                 self.agent.update_target_model()
             except AttributeError:

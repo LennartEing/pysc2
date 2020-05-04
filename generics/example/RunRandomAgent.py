@@ -10,7 +10,8 @@ _CONFIG = dict(
     visualize=False,
     train=False,
     agent=RandomAgent,
-    load_path='./graphs/...'
+    load_path='./graphs/...',
+    save_path='./graphs/...'
 )
 
 
@@ -31,7 +32,8 @@ def main(unused_argv):
         agent=agent,
         env=env,
         train=_CONFIG['train'],
-        load_path=_CONFIG['load_path']
+        load_path=_CONFIG['load_path'],
+        save_path=_CONFIG['save_path']
     )
 
     runner.run(episodes=_CONFIG['episodes'])
