@@ -4,7 +4,7 @@ from generics.runner import Runner
 from qlearn.QLearningAgent import QLearningAgent
 
 _CONFIG = dict(
-    episodes=100,
+    episodes=10,
     screen_size=64,
     minimap_size=64,
     visualize=True,
