@@ -25,7 +25,8 @@ class Runner:
                          + ('_train_' if self.train else 'run_') \
                          + type(agent).__name__
 
-        if not self.train and load_path is not None and os.path.isdir(load_path):
+        print(os.path.isfile(load_path))
+        if not self.train and load_path is not None and os.path.isfile(load_path):
             self.agent.load_model(load_path)
 
     def summarize(self):
