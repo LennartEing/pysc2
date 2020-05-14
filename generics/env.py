@@ -6,9 +6,9 @@ Interface to the SC2 environment.
 Defines which scenario to load, and what kind of Agent to instantiate.
 """
 class Env:
-    def __init__(self, screen_size=32, minimap_size=32, visualize=False):
+    def __init__(self, screen_size=32, minimap_size=32, visualize=False, map_name='MoveToBeacon'):
         self.sc2_env = sc2_env.SC2Env(
-            map_name="MoveToBeacon",
+            map_name=map_name,
             players=[sc2_env.Agent(sc2_env.Race.terran)],
             agent_interface_format=features.AgentInterfaceFormat(
                 feature_dimensions=features.Dimensions(screen=screen_size, minimap=minimap_size),

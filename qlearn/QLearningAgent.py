@@ -89,6 +89,4 @@ class QLearningAgent(AbstractAgent):
             state += 'W'
         elif distance_vector[0] < 0:
             state += 'E'
-        if state is '':
-            state = 'terminal'
         return state
